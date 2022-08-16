@@ -17,6 +17,9 @@ const saveBtn = document.querySelector('.save');
 const eventSpan = document.querySelector('.event');
 let usersTime;
 
+
+//counting how much time left till event 
+//result in ms
 const setTime = () => {
 	const currentTime = new Date();
 	const result = usersTime - currentTime;
@@ -32,6 +35,8 @@ const setTime = () => {
     secondsCount.textContent = seconds;
 };
 
+
+//adding image and date we are setting
 const appUpdate = () => {
 	eventSpan.textContent = eventName.value;
 	usersTime = new Date(
@@ -42,7 +47,7 @@ const appUpdate = () => {
 };
 
 
-
+//opening setting window
 settingsBtn.addEventListener('click', () => {
 	settings.classList.toggle('active');
 });
@@ -50,4 +55,6 @@ saveBtn.addEventListener('click', appUpdate);
 
 appUpdate()
 
+
+//interval for counting every 1s
 setInterval(setTime,1000)
